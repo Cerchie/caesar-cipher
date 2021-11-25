@@ -17,4 +17,4 @@ Limitations:
 You've got to use a `shiftDegree` between 26 and -26, and your `inputText` must be a string.
 
 PS-- this is a resource that I used: https://stackoverflow.com/questions/5788741/remove-commas-from-the-string-using-javascript
-Otherwise, I just Googled for loop syntax -- I can never remember whether it's `,` or `;` off the top of my head. 😛
+Otherwise, I just Googled for loop syntax -- I can never remember whether it's `,` or `;` off the top of my head. ;)
