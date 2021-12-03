@@ -1,16 +1,7 @@
-name: GitHub Actions Demo
-on: pull-request
- types:
-      - 'labeled'
-      - 'ready_for_review'
-  pull_request_review:
-    types:
-      - 'edited'
-      - 'dismissed'
-      - 'submitted'
+name: GitHub Review and Giphy
+on: pull_request
 jobs:
-  Review Count:
-  
+  Review_Count:
     runs-on: 'ubuntu-latest'
     steps:
       - id: 'reviews'
@@ -20,7 +11,6 @@ jobs:
       - # Conditionally run the next step
         if: 'steps.reviews.outputs.approved >= 1 && steps.reviews.outputs.changes_requested == 0'
         uses: 'iamhughes/giphy-generator@v1'
-    steps:
       - name: GIPHY Generator
         id: giphy_generator
         uses: iamhughes/giphy-generator@v1
@@ -30,4 +20,3 @@ jobs:
         with:
           rating: 'g'
           lang: 'en'
-    runs-on: ubuntu-latest
