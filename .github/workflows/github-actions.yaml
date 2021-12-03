@@ -1,0 +1,33 @@
+name: GitHub Actions Demo
+on: pull-request
+ types:
+      - 'labeled'
+      - 'ready_for_review'
+  pull_request_review:
+    types:
+      - 'edited'
+      - 'dismissed'
+      - 'submitted'
+jobs:
+  Review Count:
+  
+    runs-on: 'ubuntu-latest'
+    steps:
+      - id: 'reviews'
+        uses: 'jrylan/github-action-reviews-counter@main'
+        with:
+          repo-token: '${{ secrets.GITHUB_TOKEN }}'
+      - # Conditionally run the next step
+        if: 'steps.reviews.outputs.approved >= 1 && steps.reviews.outputs.changes_requested == 0'
+        uses: 'iamhughes/giphy-generator@v1'
+    steps:
+      - name: GIPHY Generator
+        id: giphy_generator
+        uses: iamhughes/giphy-generator@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+          GIPHY_TOKEN: ${{ secrets.GIPHY_TOKEN }} # This token should be created on giphy.com: https://developers.giphy.com/dashboard/?create=true
+        with:
+          rating: 'g'
+          lang: 'en'
+    runs-on: ubuntu-latest
