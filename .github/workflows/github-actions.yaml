@@ -1,5 +1,5 @@
 name: Giphy on review and preview
-on: pull_request_review
+on: [pull_request, pull_request_review]
 jobs:
   giphy-generator:
     name: GIPHY Generator
