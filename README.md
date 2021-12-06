@@ -20,3 +20,8 @@ PS-- this is a resource that I used: https://stackoverflow.com/questions/5788741
 Otherwise, I just used MDN for loop syntax -- I can never remember whether it's `,` or `;` off the top of my head. ;)
 
 I also [wrote a blog post](https://dev.to/cerchie/writing-a-caesar-shift-cipher-function-with-javascript-27eh) about my thought process! I hope you enjoy it.
+
+Marvel quote experiment below:
+
+<!--STARTS_HERE_QUOTE_README-->
+<!--ENDS_HERE_QUOTE_README-->
