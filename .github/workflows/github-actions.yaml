@@ -23,17 +23,17 @@ jobs:
           repo-token: '${{ secrets.GITHUB_TOKEN }}'
       - # Conditionally run the next step
         if: 'steps.reviews.outputs.approved >= 1 && steps.reviews.outputs.changes_requested == 0'
-        name: Release-Notes-Preview
   preview:
+    name: Release-Notes-Preview
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - run: |
-        git fetch --prune --unshallow --tags
-    - uses: snyk/release-notes-preview@v1.6.1
-      with:
-        releaseBranch: master
-      env:
-        GITHUB_PR_USERNAME: ${{ github.actor }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v2
+      - run: |
+         git fetch --prune --unshallow --tags
+      - uses: snyk/release-notes-preview@v1.6.1
+        with:
+          releaseBranch: main
+        env:
+          GITHUB_PR_USERNAME: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
