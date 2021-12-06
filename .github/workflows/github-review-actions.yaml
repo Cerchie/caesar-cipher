@@ -1,6 +1,14 @@
 name: Giphy on review and preview
 on: [pull_request_review]
 jobs:
+  review_count:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - id: 'reviews'
+        uses: 'jrylan/github-action-reviews-counter@main'
+        with:
+          repo-token: '${{ secrets.GITHUB_TOKEN }}'
+        if: 'steps.reviews.outputs.approved >= 1 && steps.reviews.outputs.changes_requested == 0'
   preview:
     needs: review_count
     runs-on: ubuntu-latest
