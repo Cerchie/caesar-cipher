@@ -1,5 +1,5 @@
 name: Giphy on review and preview
-on: [pull_request_review]
+on: [pull_request]
 jobs:
   giphy-generator:
     name: GIPHY Generator
@@ -14,25 +14,3 @@ jobs:
         with:
           rating: 'g'
           lang: 'en'
-  review_count:
-    runs-on: 'ubuntu-latest'
-    steps:
-      - id: 'reviews'
-        uses: 'jrylan/github-action-reviews-counter@main'
-        with:
-          repo-token: '${{ secrets.GITHUB_TOKEN }}'
-        if: 'steps.reviews.outputs.approved >= 1 && steps.reviews.outputs.changes_requested == 0'
-  preview:
-    needs: review_count
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - run: |
-        git fetch --prune --unshallow --tags
-    - uses: snyk/release-notes-preview@v1.6.1
-      with:
-        releaseBranch: master
-      env:
-        GITHUB_PR_USERNAME: ${{ github.actor }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        
