@@ -24,7 +24,7 @@ jobs:
   notify:
     name: "Code of Conduct Notifier"
     runs-on: ubuntu-latest
-    if: contains(github.event.comment.body, 'code of conduct')
+    if: contains(pull_request.body, 'code of conduct')
     steps:
       - uses: BogDAAAMN/code-of-conduct-notifier-action@v1.0.0
         with:
