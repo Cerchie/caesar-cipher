@@ -21,3 +21,11 @@ jobs:
       - uses: siddharth2016/quote-readme@main
         with:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  notify:
+    name: "Code of Conduct Notifier"
+    runs-on: ubuntu-latest
+    if: contains(github.event.comment.body, 'code of conduct')
+    steps:
+      - uses: BogDAAAMN/code-of-conduct-notifier-action@v1.0.0
+        with:
+          comment-body: "For questions about our **community guidelines**, please refer to our [Code of Conduct](https://github.com/Cerchie/caesar-cipher/blob/main/CODE_OF_CONDUCT.md)."
