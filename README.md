@@ -24,11 +24,11 @@ I also [wrote a blog post](https://dev.to/cerchie/writing-a-caesar-shift-cipher-
 Marvel quote experiment below:
 
 <!--STARTS_HERE_QUOTE_README-->
-<<<<<<< HEAD
+
 
 <i>❝“The best way to predict the future is to implement it.”— David Heinemeier Hansson ❞</i>
 
-=======
-<i>❝China has the highest number of internet users in the whole world with over 746 million active users.❞</i>
->>>>>>> 97bab397cfe2513a6c19937e453f41ec9e60943e
+
+<i>❝“The difference between theory and practice is that in theory, there is no difference between theory and practice.”— Richard Moore   ❞</i>
+
 <!--ENDS_HERE_QUOTE_README-->
